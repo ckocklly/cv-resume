@@ -1,0 +1,302 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2cm, % seperation between body and page edge from the top
+    bottom=2cm, % seperation between body and page edge from the bottom
+    left=2cm, % seperation between body and page edge from the left
+    right=2cm, % seperation between body and page edge from the right
+    footskip=1.0cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath, bm} % for math
+\usepackage[
+    % pdftitle={John Doe's CV},
+    % pdfauthor={John Doe},
+    % pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{comment}
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\begin{comment}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small John Doe - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+\end{comment}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0 cm,
+        parsep=0 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0 cm,
+        parsep=0 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth - 2cm - 0.2cm + 0.05cm},
+        \LenToUnit{\paperheight - 1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in \today}\hspace{\widthof{Last updated in \today}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    % \placelastupdatedtext
+
+    \begin{header}
+        \textbf{\fontsize{16 pt}{16 pt}\selectfont Long-Yo (Leo) Lee}
+
+        \vspace{0.1cm}
+
+        \normalsize
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820}%
+        \kern 0.25cm%
+        \AND%
+        \kern 0.25cm%
+        \mbox{\hrefWithoutArrow{mailto:ckocklly@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}ckocklly@gmail.com}}%
+        \AND%
+        \kern 0.25cm%
+        \AND%
+        \kern 0.25cm%
+        \mbox{\hrefWithoutArrow{tel:+1-217-418-9139}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}(217) 418-9139}}%
+        %
+        % \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        % \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://linkedin.com/in/yourusername}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}yourusername}}%
+        % \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://github.com/yourusername}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}yourusername}}%
+    \end{header}
+
+    \vspace{0.2cm}
+
+    \section{Education}
+        \begin{onecolentry}   
+            \textbf{University of Illinois Urbana-Champaign} \hfill
+            \textit{Aug 2023 -- expected May 2027} \\
+            \textit{BS in Mathematics and Computer Science, Minor in Physics} \hfill GPA: 3.9/{\footnotesize 4.0}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Dean's List:} Fall 2023, Spring 2024, Fall 2024, Spring 2025
+                \item \textbf{Coursework:} System Programming, Artificial Intelligence, Algorithms, Intro to Combinatorics
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Skills}
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item \textbf{Programming Languages:} C/C++/C\#, Java/Kotlin, Python, TeX/LaTeX, R
+                \item \textbf{Libraries:} pandas, matplotlib, NumPy, pennylane, torch
+                \item \textbf{Framework/Tools:} git/GitHub, VS Code, Android Studio, RStudio, Overleaf, Unity, ChatGPT
+                \item \textbf{Spoken Languages:} Mandarin Chinese, English
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
+
+    \section{Experience}
+        \begin{onecolentry}
+            \textbf{Undergraduate Presenter} \hfill Aug 2025 \\
+            \textit{MAA MathFest, Mathematical Association of America} \hfill \textit{Sacramento, CA}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Communicated technical ideas clearly through an accepted undergraduate poster session
+                \item Engaged with researchers through workshops, strengthening applied problem-solving and technical communication skills
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        \begin{onecolentry}
+            \textbf{Student Researcher}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\href{https://arxiv.org/abs/2510.08501}{\textit{Localizing entanglement in high-dimensional states}}\hfill Jan 2025 -- Oct 2025 \\
+            \textit{Illinois Mathematics Lab, University of Illinois Urbana-Champaign} \hfill \textit{Urbana, IL}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Applied computational methods to analyze complex quantum systems and form conjectures, emphasizing scalable and efficient numerical experimentation
+                \item Implemented simulations and data analysis pipelines using NumPy and PennyLane
+                \item Translated mathematical theory into computational experiments to validate conjectures
+                \item Presented results to a technical audience during the Illinois Mathematics Lab Poster Session
+                \item Contributed to a research manuscript submitted to Quantum Information Processing
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        \begin{onecolentry}
+            \textbf{Course Assistant}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\textit{CS 173:~Discrete Structures} \hfill Jan 2025 -- present \\
+            \textit{Siebel School of Computing and Data Science, UIUC} \hfill \textit{Urbana, IL}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Supported a 400-student course by grading proof-based assignments and providing actionable, structured feedback
+                \item Held weekly office hours to help students reason rigorously about algorithms, logic, and correctness
+                \item Strengthened communication skills by explaining abstract concepts effectively
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+        
+        \begin{onecolentry}
+            \textbf{VR Game Development Intern} \hfill Aug 2024 -- Dec 2024 \\
+            \textit{Applied Technologies for Learning in the Arts \& Sciences (ATLAS), UIUC} \hfill \textit{Urbana, IL}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Designed and developed VR minigame \hrefWithoutArrow{https://github.com/ckocklly/rage-room}{RageRoom\,{\footnotesize\faGithub}} using Unity and C\#, focusing on user interaction and performance
+                \item Integrated VR frameworks and packages to build immersive, responsive gameplay experiences
+                \item Collaborated in an agile team environment, presenting progress in weekly client meetings
+                \item Delivered a polished demo showcased at the ATLAS final presentation
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        \begin{onecolentry}
+            \textbf{Tutor}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\textit{CS124:~Introduction to Computer Science I} \hfill Jan 2024 -- May 2025 \\
+            \textit{Siebel School of Computing and Data Science, UIUC} \hfill \textit{Urbana, IL}
+        \end{onecolentry}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Debugged student code and explained design decisions for exams, homework, and machine projects
+                \item Improved instructional materials by designing new practice problems and clarifying edge cases
+                \item Mentored and supervised assistant tutors, strengthening leadership and technical review skills
+            \end{highlights}
+        \end{onecolentry}
+
+
+    \section{Awards}
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item \textbf{American Regions Mathematics League}: Fourth Place Award (Int'l Division), awarded 2022
+                \item \textbf{American Invitational Mathematics Examination}: Scored 10/{\footnotesize 15} (2022), top 5\%
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
+
+\end{document}
