@@ -3,10 +3,10 @@
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=2cm, % seperation between body and page edge from the top
-    bottom=2cm, % seperation between body and page edge from the bottom
-    left=2cm, % seperation between body and page edge from the left
-    right=2cm, % seperation between body and page edge from the right
+    top=.5in, % seperation between body and page edge from the top
+    bottom=.5in, % seperation between body and page edge from the bottom
+    left=.5in, % seperation between body and page edge from the left
+    right=.5in, % seperation between body and page edge from the right
     footskip=1.0cm, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
@@ -35,6 +35,7 @@
 \usepackage{needspace} % for avoiding page brake right after the section title
 \usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 \usepackage{comment}
+\usepackage{amssymb}
 
 % Ensure that generate pdf is machine readable/ATS parsable:
 \ifPDFTeX
@@ -163,7 +164,7 @@
         \vspace{0.1cm}
 
         \normalsize
-        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820}%
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820, USA}%
         \kern 0.25cm%
         \AND%
         \kern 0.25cm%
@@ -172,7 +173,7 @@
         \kern 0.25cm%
         \AND%
         \kern 0.25cm%
-        \mbox{\hrefWithoutArrow{tel:+1-217-418-9139}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}(217) 418-9139}}%
+        \mbox{\hrefWithoutArrow{tel:+1-217-418-9139}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+1 (217) 418-9139}}%
         %
         % \kern 0.25 cm%
         % \AND%
@@ -182,10 +183,10 @@
         % \AND%
         % \kern 0.25 cm%
         % \mbox{\hrefWithoutArrow{https://linkedin.com/in/yourusername}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}yourusername}}%
-        % \kern 0.25 cm%
-        % \AND%
-        % \kern 0.25 cm%
-        % \mbox{\hrefWithoutArrow{https://github.com/yourusername}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}yourusername}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/ckocklly}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}ckocklly}}%
     \end{header}
 
     \vspace{0.2cm}
@@ -194,11 +195,12 @@
         \begin{onecolentry}   
             \textbf{University of Illinois Urbana-Champaign} \hfill
             \textit{Aug 2023 -- expected May 2027} \\
-            \textit{BS in Mathematics and Computer Science, Minor in Physics} \hfill GPA: 3.9/{\footnotesize 4.0}
+            \textit{BS in Mathematics and Computer Science, Minor in Physics} \hfill GPA: 3.90{\footnotesize /4.00}
         \end{onecolentry}
-
+        
         \begin{onecolentry}
             \begin{highlights}
+                \item \textbf{In-Major GPA:} 3.98{\footnotesize /4.00}
                 \item \textbf{Dean's List:} Fall 2023, Spring 2024, Fall 2024, Spring 2025
                 \item \textbf{Coursework:} System Programming, Artificial Intelligence, Algorithms, Intro to Combinatorics
             \end{highlights}
@@ -207,69 +209,22 @@
     \section{Skills}
         \begin{onecolentry}
             \begin{highlightsforbulletentries}
-                \item \textbf{Programming Languages:} C/C++/C\#, Java/Kotlin, Python, TeX/LaTeX, R
-                \item \textbf{Libraries:} pandas, matplotlib, NumPy, pennylane, torch
                 \item \textbf{Framework/Tools:} git/GitHub, VS Code, Android Studio, RStudio, Overleaf, Unity, ChatGPT
+                \item \textbf{Programming Languages:} C/C++/C\#, Java/Kotlin, Python, TeX/LaTeX, R
+                \item \textbf{Libraries:} NumPy, Matplotlib, Pandas, PennyLane, PyTorch
                 \item \textbf{Spoken Languages:} Mandarin Chinese, English
             \end{highlightsforbulletentries}
         \end{onecolentry}
 
-    \section{Experience}
-        \begin{onecolentry}
-            \textbf{Undergraduate Presenter} \hfill Aug 2025 \\
-            \textit{MAA MathFest, Mathematical Association of America} \hfill \textit{Sacramento, CA}
-        \end{onecolentry}
-
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Communicated technical ideas clearly through an accepted undergraduate poster session
-                \item Engaged with researchers through workshops, strengthening applied problem-solving and technical communication skills
-            \end{highlights}
-        \end{onecolentry}
-
         \vspace{0.2cm}
 
+    \section{Work}
         \begin{onecolentry}
-            \textbf{Student Researcher}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\href{https://arxiv.org/abs/2510.08501}{\textit{Localizing entanglement in high-dimensional states}}\hfill Jan 2025 -- Oct 2025 \\
-            \textit{Illinois Mathematics Lab, University of Illinois Urbana-Champaign} \hfill \textit{Urbana, IL}
-        \end{onecolentry}
-
-        \begin{onecolentry}
+            \textbf{VR Game Development Intern}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\hrefWithoutArrow{https://github.com/ckocklly/rage-room}{\textit{RageRoom}\,{\small \faGithub}} \hfill Aug 2024 -- Dec 2024 \\
+            Applied Technologies for Learning in the Arts \& Sciences, University of Illinois Urbana-Champaign \hfill Urbana, IL
+            
             \begin{highlights}
-                \item Applied computational methods to analyze complex quantum systems and form conjectures, emphasizing scalable and efficient numerical experimentation
-                \item Implemented simulations and data analysis pipelines using NumPy and PennyLane
-                \item Translated mathematical theory into computational experiments to validate conjectures
-                \item Presented results to a technical audience during the Illinois Mathematics Lab Poster Session
-                \item Contributed to a research manuscript submitted to Quantum Information Processing
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2cm}
-
-        \begin{onecolentry}
-            \textbf{Course Assistant}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\textit{CS 173:~Discrete Structures} \hfill Jan 2025 -- present \\
-            \textit{Siebel School of Computing and Data Science, UIUC} \hfill \textit{Urbana, IL}
-        \end{onecolentry}
-
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Supported a 400-student course by grading proof-based assignments and providing actionable, structured feedback
-                \item Held weekly office hours to help students reason rigorously about algorithms, logic, and correctness
-                \item Strengthened communication skills by explaining abstract concepts effectively
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2cm}
-        
-        \begin{onecolentry}
-            \textbf{VR Game Development Intern} \hfill Aug 2024 -- Dec 2024 \\
-            \textit{Applied Technologies for Learning in the Arts \& Sciences (ATLAS), UIUC} \hfill \textit{Urbana, IL}
-        \end{onecolentry}
-
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Designed and developed VR minigame \hrefWithoutArrow{https://github.com/ckocklly/rage-room}{RageRoom\,{\footnotesize\faGithub}} using Unity and C\#, focusing on user interaction and performance
-                \item Integrated VR frameworks and packages to build immersive, responsive gameplay experiences
+                \item Integrated the Oculus XR Plugin for Unity to build immersive, responsive gameplay experiences
                 \item Collaborated in an agile team environment, presenting progress in weekly client meetings
                 \item Delivered a polished demo showcased at the ATLAS final presentation
             \end{highlights}
@@ -278,25 +233,66 @@
         \vspace{0.2cm}
 
         \begin{onecolentry}
-            \textbf{Tutor}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\textit{CS124:~Introduction to Computer Science I} \hfill Jan 2024 -- May 2025 \\
-            \textit{Siebel School of Computing and Data Science, UIUC} \hfill \textit{Urbana, IL}
-        \end{onecolentry}
-
-        \begin{onecolentry}
+            \textbf{Course Assistant, CS 173:~Discrete Structures} \hfill Jan 2025 -- present \\
+            Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign \hfill Urbana, IL
+            
             \begin{highlights}
-                \item Debugged student code and explained design decisions for exams, homework, and machine projects
-                \item Improved instructional materials by designing new practice problems and clarifying edge cases
-                \item Mentored and supervised assistant tutors, strengthening leadership and technical review skills
+                \item Supported a 400-student section by grading proof-based assignments and providing actionable feedback
+                \item Held weekly office hours to help students reason rigorously about logic, counting methods, and algorithms
+                \item Developed the ability to approach students' learning styles by effective communication
             \end{highlights}
         \end{onecolentry}
 
-
-    \section{Awards}
+        \vspace{0.2cm}
+        
         \begin{onecolentry}
-            \begin{highlightsforbulletentries}
-                \item \textbf{American Regions Mathematics League}: Fourth Place Award (Int'l Division), awarded 2022
-                \item \textbf{American Invitational Mathematics Examination}: Scored 10/{\footnotesize 15} (2022), top 5\%
-            \end{highlightsforbulletentries}
+            \textbf{Course Assistant, CS 124: Introduction to Computer Science I} \hfill Jan 2024 -- May 2025 \\
+            Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign \hfill Urbana, IL
+            
+            \begin{highlights}
+                \item Supported the 1100-student course by debugging and explaining student code for homework and machine projects.
+                \item Improved instructional materials by designing new practice problems and recording step-by-step walkthroughs
+                \item Mentored and supervised junior course assistants, strengthening leadership and technical review skills
+            \end{highlights}
         \end{onecolentry}
 
+        \vspace{0.2cm}
+
+
+    \section{Research}
+        \begin{onecolentry}
+            \textbf{Undergraduate Presenter} \hfill Aug 2025 \\
+            MAA MathFest, Mathematical Association of America \hfill Sacramento, CA
+            
+            \begin{highlights}
+                \item Communicated results of my summer research clearly through an accepted undergraduate poster session
+                \item Attended talks and workshops, learning cutting-edge topics that mathematicians currently study
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        \begin{onecolentry}
+            \textbf{Student Researcher}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\href{https://arxiv.org/abs/2510.08501}{\textit{Localizing entanglement in high-dimensional states}}\hfill Jan 2025 -- Oct 2025 \\
+            Illinois Mathematics Lab, University of Illinois Urbana-Champaign \hfill Urbana, IL
+
+            \begin{highlights}
+                \item Implemented numerical simulations in NumPy and PennyLane and determined relations using data-fitting methods
+                \item Applied inequality-solving skills from an algorithms course and the literature to prove theoretical results
+                \item Wrote detailed reports and presented at the poster session to communicate results to a technical audience
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+    \section{Leadership}
+        \begin{onecolentry}
+            \textbf{Audio Lead} \hfill Jan 2024 -- May 2024 \\
+            ACM GameBuilders \hfill Urbana, IL
+
+            \begin{highlights}
+                \item Composed background music for a video game produced by our club
+                \item Worked closely with the narrative designers to determine the most appropriate musical style for the game theme
+            \end{highlights}
+        \end{onecolentry}
 \end{document}
