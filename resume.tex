@@ -14,7 +14,8 @@
 \usepackage{tabularx} % for making tables with fixed width columns
 \usepackage{array} % tabularx requires this
 \usepackage[dvipsnames]{xcolor} % for coloring text
-\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\definecolor{linkColor}{RGB}{0, 0, 238} % define primary color
+% \definecolor{myblue}{blue}{0.6}
 \usepackage{enumitem} % for customizing lists
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath, bm} % for math
@@ -23,7 +24,7 @@
     % pdfauthor={John Doe},
     % pdfcreator={LaTeX with RenderCV},
     colorlinks=true,
-    urlcolor=primaryColor
+    urlcolor=linkColor
 ]{hyperref} % for links, metadata and bookmarks
 \usepackage[pscoord]{eso-pic} % for floating text on the page
 \usepackage{calc} % for calculating lengths
@@ -164,16 +165,19 @@
         \vspace{0.1cm}
 
         \normalsize
-        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820, USA}%
+        % \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820, USA}%
+        % \kern 0.25cm%
+        % \AND%
+        % \kern 0.25cm%
+        % \mbox{\hrefWithoutArrow{mailto:leolee2@illinois.edu}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}leolee2@illinois.edu}}%
+        % \kern 0.25cm%
+        % \AND%
+        % \kern 0.25cm%
+        \mbox{Email: \hrefWithoutArrow{mailto:leolee2@illinois.edu}{leolee2@illinois.edu}}%
         \kern 0.25cm%
         \AND%
         \kern 0.25cm%
-        \mbox{\hrefWithoutArrow{mailto:ckocklly@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}ckocklly@gmail.com}}%
-        \AND%
-        \kern 0.25cm%
-        \AND%
-        \kern 0.25cm%
-        \mbox{\hrefWithoutArrow{tel:+1-217-418-9139}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+1 (217) 418-9139}}%
+        \mbox{Telephone: \hrefWithoutArrow{tel:+1-217-418-9139}{+1\,(217)\,418-9139}}%
         %
         % \kern 0.25 cm%
         % \AND%
@@ -186,7 +190,7 @@
         \kern 0.25 cm%
         \AND%
         \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://github.com/ckocklly}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}ckocklly}}%
+        \mbox{GitHub: \hrefWithoutArrow{https://github.com/ckocklly}{ckocklly}}%
     \end{header}
 
     \vspace{0.2cm}
@@ -195,12 +199,11 @@
         \begin{onecolentry}   
             \textbf{University of Illinois Urbana-Champaign} \hfill
             \textit{Aug 2023 -- expected May 2027} \\
-            \textit{BS in Mathematics and Computer Science, Minor in Physics} \hfill GPA: 3.90{\footnotesize /4.00}
+            \textit{Bachelor of Science in Mathematics and Computer Science, Minor in Physics} \hfill GPA: 3.90{\footnotesize /4.00}
         \end{onecolentry}
         
         \begin{onecolentry}
             \begin{highlights}
-                \item \textbf{In-Major GPA:} 3.98{\footnotesize /4.00}
                 \item \textbf{Dean's List:} Fall 2023, Spring 2024, Fall 2024, Spring 2025
                 \item \textbf{Coursework:} System Programming, Artificial Intelligence, Algorithms, Intro to Combinatorics
             \end{highlights}
@@ -218,9 +221,23 @@
 
         \vspace{0.2cm}
 
-    \section{Work}
+    \section{Technical and Project Management}
         \begin{onecolentry}
-            \textbf{VR Game Development Intern}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\hrefWithoutArrow{https://github.com/ckocklly/rage-room}{\textit{RageRoom}\,{\small \faGithub}} \hfill Aug 2024 -- Dec 2024 \\
+            \textbf{Student Researcher}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\hrefWithoutArrow{https://arxiv.org/abs/2510.08501}{\textit{Localizing entanglement in high-dimensional states}}\hfill Jan 2025 -- Oct 2025 \\
+            Illinois Mathematics Lab, University of Illinois Urbana-Champaign \hfill Urbana, IL
+
+            \begin{highlights}
+                \item Implemented numerical simulations in NumPy and PennyLane and determined relations using data-fitting methods
+                \item Applied inequality-solving skills from an algorithms course and the literature to prove theoretical results
+                \item Wrote a detailed final report and presented at the final poster session to communicate results to a technical audience
+                \item Represented the research group to present at the undergraduate poster session of the 2025 MAA MathFest
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        \begin{onecolentry}
+            \textbf{VR Game Development Intern}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\hrefWithoutArrow{https://github.com/ckocklly/rage-room}{\textit{RageRoom}} \hfill Aug 2024 -- Dec 2024 \\
             Applied Technologies for Learning in the Arts \& Sciences, University of Illinois Urbana-Champaign \hfill Urbana, IL
             
             \begin{highlights}
@@ -232,6 +249,20 @@
 
         \vspace{0.2cm}
 
+        \begin{onecolentry}
+            \textbf{Audio Lead} \hfill Jan 2024 -- May 2024 \\
+            ACM GameBuilders \hfill Urbana, IL
+
+            \begin{highlights}
+                \item Composed background music for a video game produced by our club
+                \item Worked closely with the narrative designers to determine the most appropriate musical style for the game theme
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2cm}
+
+        
+    \section{Teaching and Tutoring Experience}
         \begin{onecolentry}
             \textbf{Course Assistant, CS 173:~Discrete Structures} \hfill Jan 2025 -- present \\
             Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign \hfill Urbana, IL
@@ -258,41 +289,4 @@
 
         \vspace{0.2cm}
 
-
-    \section{Research}
-        \begin{onecolentry}
-            \textbf{Undergraduate Presenter} \hfill Aug 2025 \\
-            MAA MathFest, Mathematical Association of America \hfill Sacramento, CA
-            
-            \begin{highlights}
-                \item Communicated results of my summer research clearly through an accepted undergraduate poster session
-                \item Attended talks and workshops, learning cutting-edge topics that mathematicians currently study
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2cm}
-
-        \begin{onecolentry}
-            \textbf{Student Researcher}\ \,\raisebox{-1.5pt}{\rule{1.2pt}{10pt}}\ \,\href{https://arxiv.org/abs/2510.08501}{\textit{Localizing entanglement in high-dimensional states}}\hfill Jan 2025 -- Oct 2025 \\
-            Illinois Mathematics Lab, University of Illinois Urbana-Champaign \hfill Urbana, IL
-
-            \begin{highlights}
-                \item Implemented numerical simulations in NumPy and PennyLane and determined relations using data-fitting methods
-                \item Applied inequality-solving skills from an algorithms course and the literature to prove theoretical results
-                \item Wrote detailed reports and presented at the poster session to communicate results to a technical audience
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2cm}
-
-    \section{Leadership}
-        \begin{onecolentry}
-            \textbf{Audio Lead} \hfill Jan 2024 -- May 2024 \\
-            ACM GameBuilders \hfill Urbana, IL
-
-            \begin{highlights}
-                \item Composed background music for a video game produced by our club
-                \item Worked closely with the narrative designers to determine the most appropriate musical style for the game theme
-            \end{highlights}
-        \end{onecolentry}
 \end{document}
