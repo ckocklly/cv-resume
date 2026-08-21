@@ -6,11 +6,11 @@
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=2cm, % seperation between body and page edge from the top
-    bottom=2cm, % seperation between body and page edge from the bottom
-    left=2cm, % seperation between body and page edge from the left
-    right=2cm, % seperation between body and page edge from the right
-    footskip=1.0cm, % seperation between body and footer
+    top=0.5in, % seperation between body and page edge from the top
+    bottom=0.5in, % seperation between body and page edge from the bottom
+    left=0.5in, % seperation between body and page edge from the left
+    right=0.5in, % seperation between body and page edge from the right
+    footskip=0.2in, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
 \usepackage[explicit]{titlesec} % for customizing section titles
@@ -37,6 +37,8 @@
 \usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 \usepackage{comment}
 \usepackage{hanging}
+\usepackage{soul}
+\setul{0.25ex}{0.1ex}
 
 % Ensure that generate pdf is machine readable/ATS parsable:
 \ifPDFTeX
@@ -193,27 +195,24 @@
         \vspace{0.3 cm}
 
         \normalsize
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}209 E Clark St Unit 4, Champaign, IL 61820, U.S.A.}%
-        \kern 0.25 cm%
+        \mbox{Email: \hrefWithoutArrow{mailto:leolee2@illinois.edu}{\ul{leolee2@illinois.edu}}}%
+        \kern 0.25cm%
         \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{mailto:ckocklly@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}ckocklly@gmail.com}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{tel:+12174189139}{{\footnotesize\faPhone*}\hspace*{0.13cm}+1~(217)~418-9139}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        % \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        \kern 0.25cm%
+        \mbox{Telephone: \hrefWithoutArrow{tel:+1-217-418-9139}{\ul{+1\,(217)\,418-9139}}}%
+        %
         % \kern 0.25 cm%
         % \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://linkedin.com/in/ckocklly}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}ckocklly}}%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://yourwebsite.com/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        % \kern 0.25 cm%
+        % \AND%
+        % \kern 0.25 cm%
+        % \mbox{\hrefWithoutArrow{https://linkedin.com/in/yourusername}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}yourusername}}%
         \kern 0.25 cm%
         \AND%
         \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://github.com/ckocklly}{{\footnotesize\faGithub}\hspace*{0.13cm}ckocklly}}%
+        \mbox{GitHub: \hrefWithoutArrow{https://github.com/ckocklly}{\ul{https://github.com/ckocklly}}}%
     \end{header}
 
     \vspace{0.3 cm - 0.3 cm}
@@ -252,197 +251,239 @@
 
 
     \section{Education}
-    \begin{onecolentry}   
-        \textbf{University of Illinois Urbana-Champaign} \hfill
-        Aug 2023 -- expected May 2027 \\
-        BS in Mathematics and Computer Science, Minor in Physics \hfill GPA: 3.9{\footnotesize /4.0}
-        
-        \begin{highlights}
-            \item \textbf{Dean's List:} Fall 2023, Spring 2024, Fall 2024, Spring 2025
-        \end{highlights}
-    \end{onecolentry}
+        \begin{onecolentry}   
+            \textbf{University of Illinois Urbana-Champaign} \hfill
+            Aug 2023 -- expected May 2027 \\
+            Bachelor of Science in Mathematics and Computer Science, Minor in Physics \hfill GPA: 3.90{\footnotesize /4.00}
+            
+            \begin{highlights}
+                \item \textbf{Dean's List:} Fall 2023, Spring 2024, Fall 2024, Spring 2025
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.3cm}
 
     
-    \section{Experiences}
-    \begin{onecolentry}
-        \textbf{Undergraduate Presenter} \hfill Aug 2025 \\
-        MAA MathFest, Mathematical Association of America \hfill Sacramento, CA
-        
-        \begin{highlights}
-            \item Communicated technical ideas clearly through an accepted undergraduate poster session
-            \item Engaged with researchers through workshops, strengthening applied problem-solving and technical communication skills
-        \end{highlights}
-    \end{onecolentry}
+    \section{Teaching Experience}
 
-    \vspace{0.3 cm}
+        \begin{onecolentry}
+            \textbf{Course Assistant of CS 173: Discrete Structures} \hfill Jan 2025 -- present \\
+            {Siebel School of Computing and Data Science, UIUC} \hfill {Urbana, IL}
+            
+            \begin{highlights}
+                \item Supported a 400-student course by grading proof-based assignments and providing actionable, structured feedback
+                \item Held weekly office hours to help students reason rigorously about algorithms, logic, and correctness
+                \item Strengthened communication skills by explaining abstract concepts effectively
+            \end{highlights}
+        \end{onecolentry}
 
-    \begin{onecolentry}
-        \textbf{Student Researcher} \hfill Jan 2025 -- Oct 2025 \\
-        Illinois Mathematics Lab, University of Illinois Urbana-Champaign \hfill Urbana, IL
-        
-        \begin{highlights}
-            \item Applied computational methods to analyze complex quantum systems and form conjectures, emphasizing scalable and efficient numerical experimentation
-            \item Implemented simulations and data analysis pipelines using NumPy and PennyLane
-            \item Translated mathematical theory into computational experiments to validate conjectures
-            \item Presented results to a technical audience during the Illinois Mathematics Lab Poster Session
-            \item Contributed to a research manuscript submitted to Quantum Information Processing
-        \end{highlights}
-    \end{onecolentry}
+        \vspace{0.3 cm}
 
-    \vspace{0.3 cm}
-
-    \begin{onecolentry}
-        \textbf{Course Assistant of CS 173: Discrete Structures} \hfill Jan 2025 -- present \\
-        {Siebel School of Computing and Data Science, UIUC} \hfill {Urbana, IL}
-        
-        \begin{highlights}
-            \item Supported a 400-student course by grading proof-based assignments and providing actionable, structured feedback
-            \item Held weekly office hours to help students reason rigorously about algorithms, logic, and correctness
-            \item Strengthened communication skills by explaining abstract concepts effectively
-        \end{highlights}
-    \end{onecolentry}
-
-    \vspace{0.3 cm}
+        \begin{onecolentry}
+            \textbf{Tutor of CS 124:~Introduction to Computer Science I} \hfill Jan 2024 -- May 2025 \\
+            {Siebel School of Computing and Data Science, UIUC} \hfill {Urbana, IL}
+            
+            \begin{highlights}
+                \item Debugged student code and explained design decisions for exams, homework, and machine projects
+                \item Improved instructional materials by designing new practice problems and clarifying edge cases
+                \item Mentored and supervised assistant tutors, strengthening leadership and technical review skills
+            \end{highlights}
+        \end{onecolentry}
     
-    \begin{onecolentry}
-        \textbf{VR Game Development Intern} \hfill Aug 2024 -- Dec 2024 \\
-        {Applied Technologies for Learning in the Arts \& Sciences (ATLAS), UIUC} \hfill {Urbana, IL}
+        \vspace{0.3 cm}
+    
+        \begin{onecolentry}
+            \textbf{Teaching Minister} \hfill Aug 2021 -- May 2022 \\
+            Chien-Kuo Electronic Industrial Study Club \hfill Taipei, Taiwan
+    
+            \begin{highlights}
+                \item Gave lectures about algorithms used in competitive programming and Python libraries
+                \item Assisted freshman students with machine projects
+                \item Held social events, summer/winter training camps, tech company visiting, club fair, board selection exams, etc.
+            \end{highlights}
+        \end{onecolentry}
+    
+        \vspace{0.3 cm}
 
-        \begin{highlights}
-            \item Designed and developed VR minigame \href{https://github.com/ckocklly/rage-room}{RageRoom} using Unity and C\#, focusing on user-VR interaction
-            \item Integrated VR frameworks and packages to build immersive, responsive gameplay experiences
-            \item Collaborated in an agile team environment, presenting progress in weekly client meetings
-            \item Delivered a polished demo showcased at the ATLAS final presentation
-        \end{highlights}
-    \end{onecolentry}
 
-    \vspace{0.3 cm}
+    \section{Research Experience}
 
-    \begin{onecolentry}
-        \textbf{Audio Lead} \hfill Jan 2024 -- May 2024 \\
-        ACM GameBuilders \hfill Urbana, IL
+        \begin{onecolentry}
+            \textbf{Student Researcher} \hfill Jan 2025 -- Oct 2025 \\
+            Illinois Mathematics Lab, University of Illinois Urbana-Champaign \hfill Urbana, IL
+            
+            \begin{highlights}
+                \item Applied computational methods to analyze complex quantum systems and form conjectures, emphasizing scalable and efficient numerical experimentation
+                \item Implemented simulations and data analysis pipelines using NumPy and PennyLane
+                \item Translated mathematical theory into computational experiments to validate conjectures
+                \item Presented results to a technical audience during the Illinois Mathematics Lab Poster Session
+                \item Contributed to a research manuscript submitted to Quantum Information Processing
+            \end{highlights}
+        \end{onecolentry}
 
-        \begin{highlights}
-            \item Composed background music for our video game; assisted with sound effect production
-            \item Discussed with story planners and found best style of music for the game theme
-        \end{highlights}
-    \end{onecolentry}
+        \vspace{0.3 cm}
 
-    \vspace{0.3 cm}
+        \begin{onecolentry}
+            \textbf{Student Researcher} \hfill Nov 2020 -- May 2022 \\
+            Graduate Institute of Photonics and Optoelectronics, National Taiwan University \hfill Taipei, Taiwan
+    
+            \begin{highlights}
+                \item Determined numerical relationships between capacitance, electrode area, and inter-electrode distance
+                \item Applied concepts in electricity \& magnetism, electronic circuits, photolithography, and AutoCAD
+                \item Presented research at my high school's symposium; awarded First Runner-Up at the school's science fair
+            \end{highlights}
+        \end{onecolentry}
 
-    \begin{onecolentry}
-        \textbf{Tutor of CS 124:~Introduction to Computer Science I} \hfill Jan 2024 -- May 2025 \\
-        {Siebel School of Computing and Data Science, UIUC} \hfill {Urbana, IL}
+        \vspace{0.3 cm}
+
+
+    \section{Work Experience}
+
+        \begin{onecolentry}
+            \textbf{Software Engineering Intern} \hfill May 2026 -- Jul 2026 \\
+            {LuxCreo Inc.} \hfill {Chicago, IL}
+
+            \begin{highlights}
+                \item Researched and compiled computer vision algorithms that identifies defects of a membrane used in digital light processing (DLP) 3D printing
+                \item Designed the user interface for the CMSI, a clinical rubric for evaluating the suitability of aligner treatment for patients
+            \end{highlights}
+        \end{onecolentry}
+    
+        \begin{onecolentry}
+            \textbf{VR Game Development Intern} \hfill Aug 2024 -- Dec 2024 \\
+            {Applied Technologies for Learning in the Arts \& Sciences (ATLAS), UIUC} \hfill {Urbana, IL}
+
+            \begin{highlights}
+                \item Designed and developed VR minigame using Unity and C\#, focusing on user-VR interaction
+                \item Integrated VR frameworks and packages to build immersive, responsive gameplay experiences
+                \item Collaborated in an agile team environment, presenting progress in weekly client meetings
+                \item Delivered a polished demo showcased at the ATLAS final presentation
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.3 cm}
+
         
-        \begin{highlights}
-            \item Debugged student code and explained design decisions for exams, homework, and machine projects
-            \item Improved instructional materials by designing new practice problems and clarifying edge cases
-            \item Mentored and supervised assistant tutors, strengthening leadership and technical review skills
-        \end{highlights}
-    \end{onecolentry}
+    \section{Other Experience}
+        \begin{onecolentry}
+            \textbf{Audio Lead} \hfill Jan 2024 -- May 2024 \\
+            ACM GameBuilders \hfill Urbana, IL
 
-    \vspace{0.3 cm}
+            \begin{highlights}
+                \item Composed background music for our video game; assisted with sound effect production
+                \item Discussed with story planners and found best style of music for the game theme
+            \end{highlights}
+        \end{onecolentry}
 
-    \begin{onecolentry}
-        \textbf{Teaching Minister} \hfill Aug 2021 -- May 2022 \\
-        Chien-Kuo Electronic Industrial Study Club \hfill Taipei, Taiwan
-
-        \begin{highlights}
-            \item Gave lectures about algorithms used in competitive programming and Python libraries
-            \item Assisted freshman students with machine projects
-            \item Held social events, summer/winter training camps, tech company visiting, club fair, board selection exams, etc.
-        \end{highlights}
-    \end{onecolentry}
-
-    \vspace{0.3 cm}
-
-    \begin{onecolentry}
-        \textbf{Student Researcher} \hfill Nov 2020 -- May 2022 \\
-        Graduate Institute of Photonics and Optoelectronics, National Taiwan University \hfill Taipei, Taiwan
-
-        \begin{highlights}
-            \item Determined numerical relationships between capacitance, electrode area, and inter-electrode distance
-            \item Applied concepts in electricity \& magnetism, electronic circuits, photolithography, and AutoCAD
-            \item Presented research at my high school's symposium; awarded First Runner-Up at the school's science fair
-        \end{highlights}
-    \end{onecolentry}
+        \vspace{0.3 cm}  
 
 
     \section{Projects}
-    \begin{onecolentry}
-        \textbf{RageRoom} --- Unity, C\#, Oculus SDK \hfill
-        \href{https://github.com/ckocklly/rage-room}{{github.com/ckocklly/rage-room}}
-    
-        \begin{highlights}
-            \item Designed an interactive VR minigame featuring real-time player interaction and physics-based mechanics
-            \item Implemented core features including object manipulation, collision detection, and user input handling
-        \end{highlights}
-    \end{onecolentry}
+        \begin{onecolentry}
+            \textbf{DLP Membrane Defect Detector} --- Python, OpenCV \hfill
+            \hrefWithoutArrow{https://github.com/ckocklly/dlp-membrane-defect-detection}{\ul{github.com/ckocklly/dlp-membrane-defect-detection}}
+        
+            \begin{highlights}
+                \item Built a workflow from capturing image, processing image, to decision
+                \item Implemented edge detection algorithms and thresholding algorithms to highlight membrane defects
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.3 cm}
+
+        \begin{onecolentry}
+            \textbf{CMSI App} --- Python, C++, HTML, Qt \hfill
+            \hrefWithoutArrow{https://github.com/ckocklly/cmsiApp}{\ul{github.com/ckocklly/cmsiApp}}
+        
+            \begin{highlights}
+                \item Built a clean, intuitive UI for uploading images and scans and displaying analysis results
+                \item Accessed Chohotech API for image analyses and data retrieval
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.3 cm}
+
+        \begin{onecolentry}
+            \textbf{RageRoom} --- Unity, C\#, Oculus SDK \hfill
+            \hrefWithoutArrow{https://github.com/ckocklly/rage-room}{\ul{github.com/ckocklly/rage-room}}
+        
+            \begin{highlights}
+                \item Designed an interactive VR minigame featuring real-time player interaction and physics-based mechanics
+                \item Implemented core features including object manipulation, collision detection, and user input handling
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.3 cm}
 
 
     \section{Publications}
-    \begin{onecolentry}
-        \begin{highlightsforbulletentries}
-            \item Vairogs, C., Chablani, A., \textbf{Lee, L.}, Sha, H., Vaughan-Lee, A., and Beckey, J. L. 2025. \textit{Localizing entanglement in high-dimensional states}. arXiv:2510.08501 [quant-ph]. \href{https://doi.org/10.48550/arXiv.2510.08501}{doi.org/10.48550/arXiv.2510.08501}
-        \end{highlightsforbulletentries}
-    \end{onecolentry}
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item Vairogs, C., Chablani, A., \textbf{Lee, L.}, Sha, H., Vaughan-Lee, A., and Beckey, J. L. 2025. \textit{Localizing entanglement in high-dimensional states}. arXiv:2510.08501 [quant-ph]. \hrefWithoutArrow{https://doi.org/10.48550/arXiv.2510.08501}{\ul{doi.org/10.48550/arXiv.2510.08501}}
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
 
-    
-    \section{Technical Skills}
-    \begin{onecolentry}
-        \begin{highlightsforbulletentries}
-            \item \textbf{Programming Languages:} C/C++/C\#, Java/Kotlin, Python, TeX/LaTeX, R
-            \item \textbf{Libraries:} pandas, matplotlib, NumPy, pennylane, torch
-            \item \textbf{Framework/Tools:} git/GitHub, VS Code, Android Studio, RStudio, Overleaf, Unity, ChatGPT
-            \item \textbf{Spoken Languages:} Mandarin Chinese, English
-        \end{highlightsforbulletentries}
-    \end{onecolentry}
+        \vspace{0.3 cm}
 
     
     \section{Honors \& Awards}
-    \begin{onecolentry}
-    \begingroup \setlength{\parskip}{2.5pt} \vspace*{-\parskip}
-        Get Experience Scholarship, College of Liberal Arts \& Sciences, UIUC \hfill 2025
+        \begin{onecolentry}
+        \begingroup \setlength{\parskip}{2.5pt} \vspace*{-\parskip}
+            Get Experience Scholarship, College of Liberal Arts \& Sciences, UIUC \hfill 2025
 
-        Rank 9, Freshman Mathematics Competition, Dept. of Mathematics, UIUC \hfill 2023
+            Rank 9, Freshman Mathematics Competition, Dept. of Mathematics, UIUC \hfill 2023
 
-        Distinction (score: 123{\footnotesize /150}), American Mathematics Competition 12 \hfill 2022
+            Distinction (score: 123{\footnotesize /150}), American Mathematics Competition 12 \hfill 2022
 
-        Fourth Place Award, International Division, American Regions Mathematics League (ARML) \hfill 2022
+            Fourth Place Award, International Division, American Regions Mathematics League (ARML) \hfill 2022
 
-        Individual Silver Medal \& Team Honorable Mention, International Linguistics Olympiad \hfill 2022
+            Individual Silver Medal \& Team Honorable Mention, International Linguistics Olympiad \hfill 2022
 
-        Gold Medal, Asian Pacific Linguistics Olympiad \hfill 2022
+            Gold Medal, Asian Pacific Linguistics Olympiad \hfill 2022
 
-        10{\footnotesize /15} (top 5\%), American Invitational Mathematics Examination (AIME) \hfill 2022
-    \endgroup
-    \end{onecolentry}
+            10{\footnotesize /15} (top 5\%), American Invitational Mathematics Examination (AIME) \hfill 2022
+        \endgroup
+        \end{onecolentry}
 
-        % Linguistics
-        % Individual Silver Medal \& Team Honorable Mention, International Linguistics Olympiad (IOL) (2022)
-        % Gold Medal, Asian Pacific Linguistics Olympiad (APLO) (2022)
-        % Math
-        % 10/15, AIME (2022)
-        % Distinction (123/150), AMC 12 (2022)
-        % Individual Gold Award \& Team Silver Award, ARML Local (2022)
-        % Fourth Place Award, ARML (IRML) (2022)
-        % First Prize Award, Schoolwide Math Competition (2022)
-        % Qualified (PR95), Asian Pacific Mathematics Olympiad (APMO) Preliminary (2021)
-        % Distinction (114/150), AMC 10 (2021)
-        % Second Prize Award, Schoolwide Math Competition (2021)
-        % High Distinction (111/135), Australian Mathematics Competition Senior Division (2020)
-        % Individual Second Prize Award \& Team Second Prize Award, Junior High School Mathematics Competition in Taiwan (JHMC) (2019)
-        % Physics
-        % First Prize Award, Schoolwide Physics Competition (2022)
-        % Excellence Award, Jianguo High School Science Fair (Physics and Astronomy Division) (2022)
-        % Distinction Award, National Taiwan University - Advance Physics Program for Talented High School Students (2020-2022)
-        % Qualified (PR95), Physics Olympiad Preliminary (2021)
-        % Second Prize Award, Schoolwide Physics Competition (2021)
-        % First Prize Award in Points Competition, The Physics Education Society of the Republic of China - Science Competition Training Camp (2021)
-        % Chemistry
-        % Third Prize Award, Schoolwide Chemistry Competition (2021)
-        % Music
-        % Excellence Award, National Student Music Composition Competition (2021)
-        % First Place Award, Taipei Student Music Composition Competition (2020)
-        % Eighth Place Award, Taipei Student Violin Competition (2019)
+            % Linguistics
+            % Individual Silver Medal \& Team Honorable Mention, International Linguistics Olympiad (IOL) (2022)
+            % Gold Medal, Asian Pacific Linguistics Olympiad (APLO) (2022)
+            % Math
+            % 10/15, AIME (2022)
+            % Distinction (123/150), AMC 12 (2022)
+            % Individual Gold Award \& Team Silver Award, ARML Local (2022)
+            % Fourth Place Award, ARML (IRML) (2022)
+            % First Prize Award, Schoolwide Math Competition (2022)
+            % Qualified (PR95), Asian Pacific Mathematics Olympiad (APMO) Preliminary (2021)
+            % Distinction (114/150), AMC 10 (2021)
+            % Second Prize Award, Schoolwide Math Competition (2021)
+            % High Distinction (111/135), Australian Mathematics Competition Senior Division (2020)
+            % Individual Second Prize Award \& Team Second Prize Award, Junior High School Mathematics Competition in Taiwan (JHMC) (2019)
+            % Physics
+            % First Prize Award, Schoolwide Physics Competition (2022)
+            % Excellence Award, Jianguo High School Science Fair (Physics and Astronomy Division) (2022)
+            % Distinction Award, National Taiwan University - Advance Physics Program for Talented High School Students (2020-2022)
+            % Qualified (PR95), Physics Olympiad Preliminary (2021)
+            % Second Prize Award, Schoolwide Physics Competition (2021)
+            % First Prize Award in Points Competition, The Physics Education Society of the Republic of China - Science Competition Training Camp (2021)
+            % Chemistry
+            % Third Prize Award, Schoolwide Chemistry Competition (2021)
+            % Music
+            % Excellence Award, National Student Music Composition Competition (2021)
+            % First Place Award, Taipei Student Music Composition Competition (2020)
+            % Eighth Place Award, Taipei Student Violin Competition (2019)
+
+        \vspace{0.3 cm}
+
+    
+    \section{Technical Skills}
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item \textbf{Programming Languages:} C/C++/C\#, Java/Kotlin, Python, TeX/LaTeX, R
+                \item \textbf{Libraries:} pandas, matplotlib, NumPy, pennylane, torch, OpenCV
+                \item \textbf{Framework/Tools:} git/GitHub, VS Code, Android Studio, RStudio, Overleaf, Unity
+                \item \textbf{Spoken Languages:} Mandarin Chinese, English
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
+
 \end{document}
